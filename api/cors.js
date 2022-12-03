@@ -5,11 +5,9 @@ export default async function handler(request, response) {
   const getRequest = (url) => {
     return new Promise(resolve => {
       const req = https.get(url, (res) => {
-        //let data = '';
         const data = new Stream();   
         res.on('data', (chunk) => {
           data.push(chunk); 
-          //data += chunk;
         });
         res.on('end', () => {
           resolve({
