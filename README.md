@@ -1,0 +1,1 @@
+# serverless-cors-anywhere-vercel
