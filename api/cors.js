@@ -1,5 +1,6 @@
 export default async function handler(request, response) {
   const https = require('https');
+
   const Stream = require('stream').Transform;
 
   const getRequest = (url) => {
@@ -19,9 +20,9 @@ export default async function handler(request, response) {
     });
   };
 
-  let url = decodeURIComponent(request.query.url);
-
-  const { status, data } = await getRequest(url);
+  const { status, data } = await getRequest(
+    decodeURIComponent(request.query.url)
+  );
 
   response.status(status).send(data);
 };
